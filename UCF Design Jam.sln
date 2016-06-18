@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{D586DE1B-1501-0487-1104-5D31F54F6F34}") = "UCF Design Jam", "Assembly-CSharp.csproj", "{0452D430-8102-62FA-22E1-517523DC4E66}"
 EndProject
+Project("{D586DE1B-1501-0487-1104-5D31F54F6F34}") = "UCF Design Jam", "Assembly-UnityScript.unityproj", "{7A63B13E-C803-548A-F5C8-FC4817FBFF7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{0452D430-8102-62FA-22E1-517523DC4E66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0452D430-8102-62FA-22E1-517523DC4E66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0452D430-8102-62FA-22E1-517523DC4E66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A63B13E-C803-548A-F5C8-FC4817FBFF7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A63B13E-C803-548A-F5C8-FC4817FBFF7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A63B13E-C803-548A-F5C8-FC4817FBFF7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A63B13E-C803-548A-F5C8-FC4817FBFF7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
