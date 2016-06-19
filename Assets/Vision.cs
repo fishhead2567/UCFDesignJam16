@@ -4,6 +4,7 @@ using System.Collections;
 public class Vision : MonoBehaviour {
 
 	Crate uncertain;
+	TileFog certain;
 
 
 	// Use this for initialization
@@ -17,23 +18,25 @@ public class Vision : MonoBehaviour {
 	}
 
 	public void OnTriggerEnter (Collider other) {
-
-		if (GameObject.FindGameObjectWithTag ("Crate")) {
-
+		if (other.gameObject.tag == "Crate") {
+			uncertain = other.gameObject.GetComponent<Crate>();
 			uncertain.uncertaintyLevel = 0f;
+			uncertain.UpdateState (false);
 
 			Debug.Log ("In Trigger");
 
 		}
 
-		if (GameObject.FindGameObjectWithTag ("FogTile")) {
-		
+		if (other.gameObject.tag == "FogTile") {
+			certain = other.gameObject.GetComponent<TileFog> ();
+			certain.uncertaintyLevel = 0f;
+			certain.UpdateColor(false);
 		
 		}
-		if (GameObject.FindGameObjectWithTag ("Enemy")) {
+		/*if (GameObject.FindGameObjectWithTag ("Enemy")) {
 
 
-		}
+		}*/
 
 	
 	}

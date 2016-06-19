@@ -13,9 +13,17 @@ public class UserPlayer : Player {
 
         float xAxisValue = Input.GetAxis("Horizontal") * 0.02f;
         float yAxisValue = Input.GetAxis("Vertical") * 0.02f;
+		bool goUp = Input.GetKeyDown (KeyCode.Q);
+		bool goDown = Input.GetKeyDown (KeyCode.E);
+		float zTranslate = 0.0f;
+		if (goUp) {
+			zTranslate = 5.0f;
+		} else if (goDown) {
+			zTranslate = -5.0f;
+		}
         if (Camera.current != null)
         {
-            Camera.current.transform.Translate(new Vector3(xAxisValue, yAxisValue, 0.0f));
+			Camera.current.transform.Translate(new Vector3(xAxisValue, yAxisValue, zTranslate));
         }
 
     }
