@@ -6,9 +6,11 @@ public class TileFog : Tile, ITurnChangeGeneric {
 	public float uncertaintyLevel;
 	public GameObject RevealObject;
 	public int test = 0;
+	public Color currentColor;
 	// Use this for initialization
 	void Start () {
 		test = 0;
+		currentColor = Color.white;
 	}
 	
 	// Update is called once per frame
@@ -16,7 +18,7 @@ public class TileFog : Tile, ITurnChangeGeneric {
 
 		test += 1;
 		if (test % 500 == 0) {
-			TurnChange ();
+			// TurnChange ();
 		}
 	}
 
@@ -28,16 +30,22 @@ public class TileFog : Tile, ITurnChangeGeneric {
 		if (uncertaintyLevel > 0.75f) {
 			uncertaintyLevel = 0.75f;
 		} else {
-			// set my uncertainty level color
-			MeshRenderer m = GetComponentInParent<MeshRenderer>();
-			Material mat = m.material;
-			mat.color = new Color (1.0f - uncertaintyLevel, 
+			currentColor = new Color (1.0f - uncertaintyLevel, 
 				1.0f - uncertaintyLevel, 
 				1.0f - uncertaintyLevel,
 				1.0f);
+			transform.GetComponent<Renderer> ().material.color = currentColor;
 		}
 
 
 		
+	}
+
+	void OnMouseExit() {
+		transform.GetComponent<Renderer> ().material.color = currentColor;
+	}
+
+	void OnMouseDown() {
+		PartyGameManager.instance.moveCurrentPlayer(this);
 	}
 }
