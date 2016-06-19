@@ -15,6 +15,6 @@ public class MoveButton : MonoBehaviour {
     public void OnClick()
     {
 		var manager = FindObjectOfType<PartyGameManager> ();
-		manager.AdvanceTurn ();
+		manager.AdvanceTurn();
     }
 }

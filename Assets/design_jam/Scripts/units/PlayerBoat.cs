@@ -7,6 +7,8 @@ public class PlayerBoat : Player, ITurnChangeGeneric {
 	void Start () {
 	
 	}
+		
+	public bool turnChangeFlag = false;
 	
 	// Update is called once per frame
 	void Update () {
@@ -18,17 +20,25 @@ public class PlayerBoat : Player, ITurnChangeGeneric {
             Camera.current.transform.Translate(new Vector3(xAxisValue, yAxisValue, 0.0f));
         }
 
+		if (turnChangeFlag) 
+		{
+			if (Vector3.Distance (moveDestination, transform.position) > 0.1f) {
+				transform.position += (moveDestination - transform.position).normalized * moveSpeed * Time.deltaTime;
+
+				if (Vector3.Distance (moveDestination, transform.position) <= 0.1f) {
+					transform.position = moveDestination;
+					GameManager.instance.nextTurn ();
+				}
+			} 
+			else 
+			{
+				turnChangeFlag = false;
+			}
+		}
     }
 	
 	public void TurnChange ()
 	{
-		if (Vector3.Distance(moveDestination, transform.position) > 0.1f) {
-			transform.position += (moveDestination - transform.position).normalized * moveSpeed * Time.deltaTime;
-			
-			if (Vector3.Distance(moveDestination, transform.position) <= 0.1f) {
-				transform.position = moveDestination;
-				GameManager.instance.nextTurn();
-			}
-		}
+		turnChangeFlag = !turnChangeFlag;
 	}
 }
