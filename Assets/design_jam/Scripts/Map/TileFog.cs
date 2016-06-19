@@ -18,7 +18,7 @@ public class TileFog : Tile, ITurnChangeGeneric {
 
 		test += 1;
 		if (test % 500 == 0) {
-			TurnChange ();
+			// TurnChange ();
 		}
 	}
 
@@ -43,5 +43,9 @@ public class TileFog : Tile, ITurnChangeGeneric {
 
 	void OnMouseExit() {
 		transform.GetComponent<Renderer> ().material.color = currentColor;
+	}
+
+	void OnMouseDown() {
+		PartyGameManager.instance.moveCurrentPlayer(this);
 	}
 }

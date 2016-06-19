@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class UserPlayer : Player {
+public class PlayerBoat : Player, ITurnChangeGeneric {
 	
 	// Use this for initialization
 	void Start () {
@@ -20,7 +20,7 @@ public class UserPlayer : Player {
 
     }
 	
-	public override void TurnUpdate ()
+	public void TurnChange ()
 	{
 		if (Vector3.Distance(moveDestination, transform.position) > 0.1f) {
 			transform.position += (moveDestination - transform.position).normalized * moveSpeed * Time.deltaTime;
@@ -30,7 +30,5 @@ public class UserPlayer : Player {
 				GameManager.instance.nextTurn();
 			}
 		}
-		
-		base.TurnUpdate ();
 	}
 }
