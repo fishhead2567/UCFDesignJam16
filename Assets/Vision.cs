@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Vision : MonoBehaviour {
 
+	Crate uncertain;
 
 
 	// Use this for initialization
@@ -15,11 +16,13 @@ public class Vision : MonoBehaviour {
 	
 	}
 
-	public void OnTriggerEnter () {
-	
-		if (GameObject.FindGameObjectWithTag ("Crate")) {
-		 
+	public void OnTriggerEnter (Collider other) {
 
+		if (GameObject.FindGameObjectWithTag ("Crate")) {
+
+			uncertain.uncertaintyLevel = 0f;
+
+			Debug.Log ("In Trigger");
 
 		}
 

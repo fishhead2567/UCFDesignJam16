@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Crate : MonoBehaviour {
 	public float crateState = 0f;
-    public float uncertaintyLevel = 0f;
+    public float uncertaintyLevel = 0.75f;
 	public GameObject state1;
 	public GameObject state2;
 	public GameObject state3;
